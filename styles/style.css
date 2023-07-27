@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/*Cores Globais no css são guardadas em variaveis de escopo global "root"*/
+
+:root{
+  /* 60-30-10 rule graphic design */
+  /* 60% */ --cor-primaria: #001C30;
+  /* 30% */ --cor-secundaria: #176B87; 
+  /* 10% */ --cor-terciaria: #64CCC5;
+            --cor-hover: #DAFFFB;
+            /*picked on color-hunt*/
+            
+            --fonte-primaria: 'Krona One', sans-serif;
+            --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+
+body{
+    box-sizing: border-box;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.main__header{
+    padding: 2% 0% 0% 16%;
+}
+
+.main__header__menu{
+    display: flex;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.navigation__links{
+    color: var(--cor-terciaria);
+    font-family: var(--fonte-secundaria);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navigation__links:hover{
+    color: var(--cor-hover);
+}
+
+.titulo-destaque{
+    color: var(--cor-terciaria);
+}
+
+.apresentacao{
+    padding: 6% 16%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 82px;
+}
+.apresentacao__conteudo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.apresentacao__conteudo__titulo{
+    font-size: 2.25rem;
+    font-family: var(--fonte-primaria)
+}
+
+.apresentacao__conteudo__texto{
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria)
+}
+
+.apresentacao__links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.apresentacao__links__subtitulo{
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.apresentacao__links__botao{
+    /* background-color: #22D4FD; */
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria);
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 21.5px 0;
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+}
+.apresentacao__links__botao:hover{
+    background-color: var(--cor-hover);
+}
+
+.apresentacao__imagem{
+    width: 50%;
+}
+
+.main__footer{
+    font-family: var(--fonte-secundaria);
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    padding: 1.5rem;
+    text-align: center;   
+}
+
+
+/* css break points: every css attribute inside "@media" will be activated when
+the condition is met, so, when the browser interprets that the max-width of the 
+screen has reach 1200px, everything below will take place*/
+
+@media (max-width: 1200px) {
+   
+    .main__header {
+        padding: 8%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /*since this container is a column we will use
+         align items to put it on the center instead of justify-content*/
+    }
+    
+    .apresentacao {
+        flex-direction: column-reverse;
+        padding: 8%; /*the padding won't be visualized at glance until the content fill all
+         the space avaliable, because the padding is too far away from the pre-configured
+         content of our desktop*/
+    }
+
+    .apresentacao__conteudo {
+        width: 100%; /*you can use auto or 100% to use all the space avaliable of the parent class*/
+    }
+
+    .apresentacao__imagem{
+        width: 100%;
+    }
+
+}
+
+/*Podemos definir uma largura máxima de “480px” para o celular: @media (max-width: 480px),
+e em outra media query definir uma largura máxima de “800px” para os tablets: @media (max-width: 800px),
+e então atribuímos os ajustes necessários dentro de cada media query, dessa forma teremos nosso site 100% responsivo.
+Podemos também definir intervalos para os tamanhos de telas com um único media query, atribuímos o valor mínimo e depois
+o valor máximo separando ele pelo atributo and, veja: @media (min-width: 480px ) and (max-width: 800px), nesse caso os
+estilos serão aplicados em telas de no mínimo “480px” e de no máximo “800px”.*/
